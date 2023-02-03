@@ -32,12 +32,27 @@ Item {
             model: pagerModel
 
             Rectangle {
+                id: pageItem
+
                 width: thickness
                 Layout.fillHeight: true
 
-                color: index === pagerModel.currentPage ? pageBgColorCurrent :
-                    Utils.hasWindows(model) ? pageBgColor :
+                color: current ? pageBgColorCurrent :
+                    hasWindows ? pageBgColor :
                     pageBgColorEmpty
+
+                readonly property bool current: index === pagerModel.currentPage
+                property bool hasWindows: Utils.hasWindows(model)
+
+                Connections {
+                    target: model.TasksModel
+                    function onRowsInserted() {
+                        Utils.updatePageState(model, pageItem);
+                    }
+                    function onRowsRemoved() {
+                        Utils.updatePageState(model, pageItem);
+                    }
+                }
             }
         }
     }

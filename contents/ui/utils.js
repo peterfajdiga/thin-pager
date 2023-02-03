@@ -8,3 +8,7 @@ function hasWindows(pageModel) {
     }
     return pageModel.TasksModel.hasChildren();
 }
+
+function updatePageState(pageModel, pageItem) {
+    pageItem.hasWindows = hasWindows(pageModel);
+}
