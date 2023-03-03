@@ -9,11 +9,18 @@ Item {
     id: root
 
     anchors.fill: parent
-    Layout.minimumWidth: thickness
-    Layout.preferredWidth: thickness
+    Layout.minimumWidth: plasmoidWidth
+    Layout.preferredWidth: plasmoidWidth
+    Layout.minimumHeight: plasmoidHeight
+    Layout.preferredHeight: plasmoidHeight
 
     Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation
     Plasmoid.constraintHints: PlasmaCore.Types.CanFillArea
+
+    readonly property bool vertical: plasmoid.formFactor === PlasmaCore.Types.Vertical
+    readonly property int panelThickness: vertical ? parent.width : parent.height
+    readonly property int plasmoidWidth: vertical ? panelThickness : thickness
+    readonly property int plasmoidHeight: vertical ? thickness : panelThickness
 
     readonly property int thickness: 4
     readonly property color pageBgColor: Utils.colorAlpha(PlasmaCore.ColorScope.textColor, 0.2)
@@ -23,9 +30,12 @@ Item {
     ColumnLayout {
         id: pagesContainer
 
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
         width: thickness
+        height: panelThickness
+        rotation: vertical ? -90 : 0
+        transform: Translate {y: vertical ? thickness : 0}
+        transformOrigin: Item.TopLeft
+
         spacing: 1
 
         Repeater {
