@@ -18,7 +18,7 @@ Item {
     Plasmoid.constraintHints: PlasmaCore.Types.CanFillArea
 
     readonly property bool vertical: plasmoid.formFactor === PlasmaCore.Types.Vertical
-    readonly property int panelThickness: vertical ? parent.width : parent.height
+    readonly property int panelThickness: Utils.getThickness(parent, vertical)
     readonly property int plasmoidWidth: vertical ? panelThickness : thickness
     readonly property int plasmoidHeight: vertical ? thickness : panelThickness
 
