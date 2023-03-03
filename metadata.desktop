@@ -1,16 +1,16 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Compact Pager
-Comment=It's a compact pager
+Name=Thin Pager
+Comment=It's a thin pager
 Type=Service
 
 X-KDE-ParentApp=
 X-KDE-PluginInfo-Author=Peter Fajdiga
 X-KDE-PluginInfo-Email=peter.fajdiga@gmail.com
 X-KDE-PluginInfo-License=GPL
-X-KDE-PluginInfo-Name=peterfajdiga.plasma.compactPager
+X-KDE-PluginInfo-Name=peterfajdiga.plasma.thinPager
 X-KDE-PluginInfo-Version=2.0
-X-KDE-PluginInfo-Website=github.com/peterfajdiga/compact-pager
+X-KDE-PluginInfo-Website=github.com/peterfajdiga/thin-pager
 X-KDE-ServiceTypes=Plasma/Applet
 X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/main.qml

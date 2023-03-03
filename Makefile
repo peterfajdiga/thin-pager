@@ -1,4 +1,4 @@
-PACKAGE_NAME := peterfajdiga.plasma.compactPager
+PACKAGE_NAME := peterfajdiga.plasma.thinPager
 INSTALL_DIR := ~/.local/share/plasma/plasmoids/${PACKAGE_NAME}
 
 install:
