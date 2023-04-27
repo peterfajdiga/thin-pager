@@ -6,7 +6,7 @@ install:
 	rm -r ${INSTALL_DIR}
 	mkdir ${INSTALL_DIR}
 	cp -r ./contents ${INSTALL_DIR}
-	cp ./metadata.desktop ${INSTALL_DIR}
+	cp ./metadata.json ${INSTALL_DIR}
 
 run: install
 	plasmoidviewer --applet ${PACKAGE_NAME}
