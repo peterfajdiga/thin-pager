@@ -6,6 +6,9 @@ INSTALL_DIR := ~/.local/share/plasma/plasmoids/${PACKAGE_NAME}
 install:
 	kpackagetool5 -i ./package || kpackagetool5 -u ./package
 
+uninstall:
+	kpackagetool5 -r ./package
+
 run: install
 	plasmoidviewer --applet ${PACKAGE_NAME}
 
