@@ -1,4 +1,5 @@
 PACKAGE_NAME := peterfajdiga.plasma.thinPager
+VERSION = $(shell grep '"Version":' ./package/metadata.json | grep -o '[0-9\.]*')
 
 .PHONY: *
 
@@ -12,4 +13,4 @@ run: install
 	plasmoidviewer --applet ${PACKAGE_NAME}
 
 package:
-	cd ./package && zip -r - ./* > ../ThinPager.plasmoid
+	cd ./package && zip -r - ./* > ../ThinPager_${subst .,_,${VERSION}}.plasmoid
