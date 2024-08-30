@@ -1,6 +1,6 @@
 PACKAGE_NAME := peterfajdiga.plasma.thinPager
 
-.PHONY: install run package
+.PHONY: *
 
 install:
 	kpackagetool6 --type=Plasma/Applet --install=./package || kpackagetool6 --type=Plasma/Applet --upgrade=./package
