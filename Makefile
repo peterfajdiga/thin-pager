@@ -10,7 +10,7 @@ uninstall:
 	kpackagetool6 --type=Plasma/Applet --remove=${PACKAGE_NAME}
 
 run: install
-	plasmoidviewer --applet ${PACKAGE_NAME}
+	plasmoidviewer --applet=${PACKAGE_NAME}
 
 package:
 	cd ./package && zip -r - ./* > ../ThinPager_${subst .,_,${VERSION}}.plasmoid
