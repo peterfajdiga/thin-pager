@@ -1,13 +1,12 @@
 PACKAGE_NAME := peterfajdiga.plasma.thinPager
-INSTALL_DIR := ~/.local/share/plasma/plasmoids/${PACKAGE_NAME}
 
 .PHONY: install run package
 
 install:
-	kpackagetool5 -i ./package || kpackagetool5 -u ./package
+	kpackagetool6 --type=Plasma/Applet --install=./package || kpackagetool6 --type=Plasma/Applet --upgrade=./package
 
 uninstall:
-	kpackagetool5 -r ./package
+	kpackagetool6 --type=Plasma/Applet --remove=${PACKAGE_NAME}
 
 run: install
 	plasmoidviewer --applet ${PACKAGE_NAME}

@@ -1,11 +1,12 @@
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.private.pager 2.0
+import QtQuick 6.0
+import QtQuick.Layouts 6.0
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasmoid
+import org.kde.plasma.private.pager
+import org.kde.kirigami as Kirigami
 import "./utils.js" as Utils
 
-Item {
+PlasmoidItem {
     id: root
 
     anchors.fill: parent
@@ -14,8 +15,8 @@ Item {
     Layout.minimumHeight: plasmoidHeight
     Layout.preferredHeight: plasmoidHeight
 
-    Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation
-    Plasmoid.constraintHints: PlasmaCore.Types.CanFillArea
+    preferredRepresentation: fullRepresentation
+    Plasmoid.constraintHints: Plasmoid.CanFillArea
 
     readonly property bool vertical: plasmoid.formFactor === PlasmaCore.Types.Vertical
     readonly property int panelThickness: Utils.getThickness(parent, vertical)
@@ -23,9 +24,9 @@ Item {
     readonly property int plasmoidHeight: vertical ? thickness : panelThickness
 
     readonly property int thickness: 4
-    readonly property color pageBgColor: Utils.colorAlpha(PlasmaCore.ColorScope.textColor, 0.2)
+    readonly property color pageBgColor: Utils.colorAlpha(Kirigami.Theme.textColor, 0.2)
     readonly property color pageBgColorEmpty: "transparent"
-    readonly property color pageBgColorCurrent: PlasmaCore.ColorScope.highlightColor
+    readonly property color pageBgColorCurrent: Kirigami.Theme.highlightColor
 
     ColumnLayout {
         id: pagesContainer
@@ -75,7 +76,7 @@ Item {
         showDesktop: false
 
         showOnlyCurrentScreen: false
-        screenGeometry: Plasmoid.screenGeometry
+        screenGeometry: screenGeometry
 
         pagerType: PagerModel.VirtualDesktops
     }
